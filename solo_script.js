@@ -1,5 +1,10 @@
 // ! ! !
 // Three Bugs
+//Added an [i] here to loop through array so that the values would update accordingly.
+//added Math.round to round bonus amount)
+
+  //took off the -1 which was causing negative values
+//Could not get the Pro challenge to work :( tried adding a color just to keep it simple.
 "use strict";
 var arrayAtticus = ["Atticus", "2405", "47000", 3];
 var arrayJem = ["Jem", "62347", "63500", 4];
@@ -17,10 +22,10 @@ position = document.getElementById("content");
 //Note that the information is not 'clean'
 for(var i = 0; i < array.length; i++){
 	array[i] = calculateSTI(array[i]);
-	 //Added an [i] here to loop through array so that the name would update.
  	newEl = document.createElement('li');
- 	//Could not get the Pro challenge to work :( tried adding a color just to keep it simple
+ 	
  	//document.getElementById("newEl").style.color = "red";
+
 	newText = document.createTextNode(array[i].join(', '))	
 	newEl.appendChild(newText);
 	position.appendChild(newEl);
@@ -40,8 +45,8 @@ function calculateSTI(array){
   }
 
   newArray[1] = bonus;
+  //[2] ended up displaying in an odd way for a couple extremely long values in the array.  I was not sure of a method to fix.
   newArray[2] = baseSalary * (1.0 + bonus);
-  //added Math.round to round bonus amount)
   newArray[3] = Math.round(baseSalary * bonus);
   console.log(newArray[0] + " " + newArray[1] + " " + newArray[2] + " " + newArray[3]);	
   return newArray;
@@ -67,7 +72,6 @@ function getBaseSTI(reviewScore){
       basePercent = 0.10;
       break;
   }
-  //took off the -1 which was causing negative values
   return basePercent;
 }
 
